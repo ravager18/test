@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('blocks/head') -%>
+</head>
+
+<body>
+    <%- include('blocks/header') -%>
+    <form action="<%= isNew ? '/role' : '/role/' + role.id %>" method="post">
+            
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Name:</span>
+            <input type="text" class="form-control" id="name" name="name" placeholder="" aria-label="" aria-describedby="basic-addon1" 
+            value="<%= role.name %>"><br>
+          </div>
+          
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Comment:</span>
+            <input type="text" class="form-control" id="comment" name="comment" placeholder="" aria-label="" aria-describedby="basic-addon1" 
+            value="<%= role.comment %>"><br>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Code:</span>
+            <input type="text" class="form-control" id="code" name="code" placeholder="" aria-label="" aria-describedby="basic-addon1" 
+            value="<%= role.code %>"><br>
+          </div>
+          <button type="submit" class="btn btn-primary">сохранить</button>
+    </form>
+</body>
+
+</html>
