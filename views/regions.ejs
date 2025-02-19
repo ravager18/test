@@ -4,10 +4,10 @@
 <head>
     <%- include('blocks/head') -%>
         <script>
-            async function remove_role(id) {
+            async function remove_region(id) {
                 let isOK = confirm("вы действительно хотите удалить роль?");
                 if (isOK) {
-                    let response = await fetch(`/role/remove/${id}`, {
+                    let response = await fetch(`/region/remove/${id}`, {
                         method: 'delete',
                     });
                     location.reload()
@@ -18,37 +18,33 @@
 
 <body>
     <%- include('blocks/header') -%>
-        <a class="btn btn-outline-primary" href="/role_add" role="button">Создать</a>
+        <a class="btn btn-outline-primary" href="/region_add" role="button">Создать</a>
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Права</th>
+                    <th scope="col">country_name</th>
                     <th scope="col">Code</th>
                     <th scope="col">дествие</th>
                 </tr>
             </thead>
             <tbody>
-                <% for (let role of roles) { %>
+                <% for (let region of regions) { %>
                     <tr>
                         <td>
 
-                            <a class="btn btn-warning" href="/role/<%= role.id %>" role="button">
-                                <%= role.id %>
+                            <a class="btn btn-warning" href="/region/<%= region.id %>" role="button">
+                                <%= region.id %>
                             </a>
                         </td>
                         <td>
-                            <%= role.name %>
+                            <%= region.name_of_country %>
                         </td>
                         <td>
-                            <%= role.comment %>
+                            <%= region.code %>
                         </td>
                         <td>
-                            <%= role.code %>
-                        </td>
-                        <td>
-                            <button onclick="remove_role('<%= role.id %>')"
+                            <button onclick="remove_region('<%= region.id %>')"
                                 class="btn btn-outline-danger">Удалить</button>
                         </td>
                     </tr>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('blocks/head') -%>
+</head>
+
+<body>
+    <%- include('blocks/header') -%>
+        <form action="<%= isNew ? '/region' : '/region/' + region.id %>" method="post">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">cntr_name:</span>
+                <input type="text" class="form-control" id="name_of_country" name="name_of_country" placeholder=""
+                    aria-label="" aria-describedby="basic-addon1" value="<%= region.name_of_country %>"><br>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Code:</span>
+                <input type="text" class="form-control" id="code" name="code" placeholder="" aria-label=""
+                    aria-describedby="basic-addon1" value="<%= region.code %>"><br>
+            </div>
+            <button type="submit" class="btn btn-primary">сохранить</button>
+        </form>
+</body>
+
+</html>

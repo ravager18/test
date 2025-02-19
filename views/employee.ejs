@@ -21,7 +21,7 @@
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Email:</span>
-                <input type="text" class="form-control" id="email" name="email"  placeholder="" aria-label=""
+                <input type="text" class="form-control" id="email" name="email" placeholder="" aria-label=""
                     value="<%= employee.email %>" /><br>
             </div>
 
@@ -38,15 +38,25 @@
             <br>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Страна рождения:</span>
-                <input type="text" class="form-control" id="country_of_birth" name="country_of_birth" placeholder="" aria-label=""
-                    values="<%= employee.country_of_birth %>" /><br>
+
+                <select class="form-select" aria-label="Default select example" id="name_of_country"
+                    name="name_of_country">
+                    <% for (let reg of regions) { %>
+                        <option <%= reg.id === employee.region_id ? 'selected' : '' %> value="<%= reg.id %>"><%=
+                                    reg.name_of_country %>
+                        </option>
+
+                        <% } %>
+                </select>
             </div>
-            
+
             <% for (let emrl of employee_role) { %>
-                <%= emrl.name %>
+                <button type="click" class="btn btn-primary">
+                    <%= emrl.name %>
+                </button>
                 <% } %>
-                <br>
-            <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
         </form>
 </body>
 
